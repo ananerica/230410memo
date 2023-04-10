@@ -1,0 +1,68 @@
+{
+    "name": "postcentage-global-api",
+    "version": "1.0.0",
+    "description": "git clone git@bitbucket.org:finebindintern/postcentage-global-api.git",
+    "main": "app.js",
+    "repository": {
+        "type": "git",
+        "url": "https://bitbucket.org/finebindintern/postcentage-global-api/"
+    },
+    "license": "ISC",
+    "private": true,
+    "husky": {
+        "hooks": {
+            "pre-commit": "pretty-quick --staged",
+            "pre-push": "yarn run lint"
+        }
+    },
+    "scripts": {
+        "dev": "cross-env NODE_ENV=dev node app.js",
+        "start:dev": "NODE_ENV=dev PORT=3000 pm2 start app.js --name 'postcentage-global-api-dev' --node-args='--expose-gc' --max-memory-restart 300M --log-date-format='YYYY-MM-DD HH:mm Z'",
+        "start:staging": "NODE_ENV=staging PORT=3001 pm2 start app.js --name 'postcentage-global-api-staging' --node-args='--expose-gc' --max-memory-restart 1024M --log-date-format='YYYY-MM-DD HH:mm Z'",
+        "start:prod": "NODE_ENV=prod PORT=3000 pm2 start app.js --name 'postcentage-global-api-prod' --node-args='--expose-gc' --max-memory-restart 1024M --log-date-format='YYYY-MM-DD HH:mm Z'",
+        "lint": "eslint --ext .js --ignore-path .gitignore ."
+    },
+    "homepage": "https://bitbucket.org/finebindintern/postcentage-global-api/",
+    "dependencies": {
+        "@elastic/elasticsearch": "^7.13.0",
+        "@hapi/boom": "^9.1.4",
+        "better-console": "^1.0.1",
+        "bluebird": "^3.5.1",
+        "bytes": "^3.1.1",
+        "chalk": "^2.4.1",
+        "cheerio": "^1.0.0-rc.12",
+        "config": "^1.28.1",
+        "geoip-lite": "^1.4.6",
+        "google-auth-library": "^8.6.0",
+        "googleapis": "^108.0.1",
+        "humanize-number": "^0.0.2",
+        "joi": "^14.3.0",
+        "jsonwebtoken": "^8.5.1",
+        "knex": "0.14.1",
+        "koa": "2.4.1",
+        "koa-body": "^4.2.0",
+        "koa-router": "^7.2.1",
+        "koa-session": "^5.8.1",
+        "koa2-cors": "^2.0.5",
+        "koa2-validation": "^1.0.0",
+        "moment": "2.19.2",
+        "mysql": "2.16.0",
+        "passthrough-counter": "^1.0.0",
+        "pg": "^8.8.0",
+        "redis": "^2.8.0",
+        "superagent": "^3.8.1",
+        "uuid": "^8.3.2"
+    },
+    "devDependencies": {
+        "babel-eslint": "^10.1.0",
+        "eslint": "7.5",
+        "eslint-config-airbnb-base": "^12.1.0",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-import": "^2.8.0",
+        "eslint-plugin-prettier": "^4.0.0",
+        "eslint-watch": "^3.1.3",
+        "husky": "^4.2.1",
+        "prettier": "^1.19.1",
+        "pretty-quick": "^2.0.1"
+    }
+}

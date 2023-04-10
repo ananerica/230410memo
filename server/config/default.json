@@ -1,0 +1,22 @@
+{
+    "api": {
+        "version": "0.1.0"
+    },
+    "db": {
+        "mainDB": {
+            "client": "mysql",
+            "database": "tripllo",
+            "host": "34.80.86.39",
+            "password": "sdm_g1",
+            "port": 3306,
+            "user": "tripllo_member",
+            "debug": true,
+            "ConnectionTimeoutInSecond": 10
+        }
+    },
+    "auth": {
+        "jwtSecret": "sdm0class0g1trillo",
+        "accessTokenExpiredTime": 600,
+        "refreshTokenExpiredTime": 2592000
+    }
+}
